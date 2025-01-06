@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaytenTube</title>
+    <style>
+        body {
+            font-family: Comic Sans MS, sans-serif;
+            background-color: #ffcccc;
+            color: #333;
+            margin: 0;
+        }
+        header {
+            background: #ff0000;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+        .header-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .search-bar input {
+            width: 60%;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+        .video {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        .video img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .creator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .creator img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+        footer {
+            text-align: center;
+            background: #ff0000;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #no-results {
+            text-align: center;
+            color: red;
+            display: none;
+        }
+        #about-section {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #000;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function updateVideoVisibility() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const videos = document.querySelectorAll('.video');
+            let found = false;
+
+            videos.forEach((video) => {
+                const title = video.querySelector('p:first-of-type').textContent.toLowerCase();
+                const creator = video.querySelector('.creator p').textContent.toLowerCase();
+
+                // Check if the title or creator matches the search query
+                if ((query !== '' && (title.includes(query) || creator.includes(query)))) {
+                    video.style.display = 'block'; // Show the video
+                    found = true;
+                } else if (query === '') {
+                    video.style.display = 'block'; // Show all videos if the search is cleared
+                } else {
+                    video.style.display = 'none'; // Hide the video
+                }
+            });
+
+            // Display "No results" message if no videos match the search term
+            const noResultsMessage = document.getElementById('no-results');
+            if (!found && query !== '') {
+                noResultsMessage.style.display = 'block';
+            } else {
+                noResultsMessage.style.display = 'none';
+            }
+        }
+
+        function showAbout() {
+            const aboutSection = document.getElementById('about-section');
+            aboutSection.style.display = aboutSection.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        TaytenTube
+        <div class="header-links">
+            <a href="javascript:void(0);" onclick="showAbout()">About</a>
+        </div>
+    </header>
+    <div id="about-section">
+        <h2>How Tayten Founded TaytenTube</h2>
+        <p>So, picture this: Tayten was sitting on his couch, staring at a pile of potato chips, contemplating life. He thought, "What if there was a website where people could watch videos about... absolutely random stuff?!" Inspired by a single potato chip (which he ate immediately), he decided to create TaytenTube. And thus, a global phenomenon was born. Well, not really. But it's a start, right?</p>
+    </div>
+    <div class="search-bar">
+        <input id="search-input" type="text" placeholder="Search for videos..." oninput="updateVideoVisibility()">
+        <button onclick="updateVideoVisibility()">Search</button>
+    </div>
+    <div id="no-results">
+        No videos found for your search.
+    </div>
+    <div class="video-grid">
+        <div class="video">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                <img src="https://imgur.com/e58W2XX.jpg" alt="Video Thumbnail 1" style="width:270px;height:180px;">
+            </a>
+            <p>I Bullied 500 Little Children</p>
+            <div class="creator">
+                <img src="https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s176-c-k-c0x00ffffff-no-rj-mo" alt="Mr Beast Profile" />
+                <p>Mr Breast</p>
+            </div>
+        </div>
+        <div class="video">
+            <a href="https://www.youtube.com/watch?v=gcx2jMbBGY4" target="_blank">
+                <img src="https://i.ytimg.com/vi/gcx2jMbBGY4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDvcM0yr3GkdaitXd2F4fZAceIZwA" alt="Video Thumbnail 2" style="width:270px;height:180px;">
+            </a>
+            <p>The Satisfying Downfall of Nas Daily</p>
+            <div class="creator">
+                <img src="https://yt3.ggpht.com/Za9bEuCk2--pBiSsJTeTEpZTDuIDrxi0DDhTne2PwNoHDXuCtTk2EC1J-PL7YgR2WCjPZviGKJI=s88-c-k-c0x00ffffff-no-rj" alt="Internet Anarchist pfp" />
+                <p>Internet Anarchist</p>
+            </div>
+        </div>
+        <div class="video">
+            <a href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank">
+                <img src="https://i.ytimg.com/vi/9bZkp7q19f0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBNZCbK5jdh3ENPfdzB3BGNGNwCJg" alt="Video Thumbnail 1" style="width:270px;height:180px;">
+            </a>
+            <p>PSY - GANGNAM STYLE(강남스타일) M/V</p>
+            <div class="creator">
+                <img src="https://yt3.ggpht.com/kJ8zwS_VhJ0TE-XDumnshGQ86hazfhHjjU4xn80Dc8xmSghA_2xw4OJTHaGreyeoro6q_vcT=s88-c-k-c0x00ffffff-no-rj" alt="PSY Profile" />
+                <p>officialpsy</p>
+            </div>
+        </div>
+        <div class="video">
+            <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4" target="_blank">
+                <img src="https://i.ytimg.com/vi/ZZ5LpwO-An4/hqdefault.jpg?sqp=-oaymwFBCOADEI4CSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AHeA4AC6AKKAgwIABABGH8gXigbMA8=&rs=AOn4CLDpRV34qELMvEClMVDcQuk3umSE4A" alt="Video Thumbnail 4" style="width:270px;height:180px;">
+            </a>
+            <p>HEYYEYAAEYAAAEYAEYAA</p>
+            <div class="creator">
+                <img src="https://yt3.ggpht.com/ytc/AIdro_mGLzlWQe9pCzI-s5nFGMzTGsxVMIUUo0Aq6hRcQsWZTIY=s88-c-k-c0x00ffffff-no-rj" alt="ProtoOfSnagem Profile" />
+                <p>ProtoOfSnagem</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 TaytenTube. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
