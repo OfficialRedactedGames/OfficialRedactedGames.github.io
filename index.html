@@ -47,6 +47,12 @@
             color: white;
             border: none;
         }
+	.tm {
+	    text-align: center;
+	    font-size: 24px;
+	    color: #333;
+	    font-weight: bold;
+	}
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -61,7 +67,8 @@
         }
         .video img {
             width: 100%;
-            height: 100px;
+            height: auto;
+            max-width: 270px;
             object-fit: cover;
             cursor: pointer;
         }
@@ -83,7 +90,7 @@
             background: #ff0000;
             color: white;
             padding: 10px;
-            position: fixed;
+            /* position: fixed; */
             bottom: 0;
             width: 100%;
         }
@@ -100,6 +107,45 @@
             border: 1px solid #000;
             margin: 20px;
             text-align: center;
+        }
+
+        /* Responsive design for different screen sizes */
+        @media (max-width: 768px) {
+            .video img {
+                max-width: 200px; /* Smaller size for tablets or small screens */
+            }
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video img {
+                max-width: 150px; /* Even smaller for mobile devices */
+            }
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Featured Shorts section styles */
+        .featured-shorts {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffcccc;
+            /* border: 1px solid #ccc; */
+        }
+        .featured-shorts iframe {
+            max-width: 100%;
+            height: 600px;
+        }
+        .featured-shorts h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
         }
     </style>
     <script>
@@ -156,50 +202,57 @@
     <div id="no-results">
         No videos found for your search.
     </div>
+    <div class="tm">
+    <p>Todays Mix</p>
+    </div>
     <div class="video-grid">
         <div class="video">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                <img src="https://imgur.com/e58W2XX.jpg" alt="Video Thumbnail 1" style="width:270px;height:180px;">
+            <a href="https://www.youtube.com/watch?v=PhIkE_L_dNE" target="_blank">
+                <img src="https://i.ytimg.com/vi/PhIkE_L_dNE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCmW91aZZkLzIDBLwJ71k21xt5dQQ" alt="Video Thumbnail 1">
             </a>
-            <p>I Bullied 500 Little Children</p>
+            <p>Disgusting Lethal Company Interiors</p>
             <div class="creator">
-                <img src="https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s176-c-k-c0x00ffffff-no-rj-mo" alt="Mr Beast Profile" />
-                <p>Mr Breast</p>
+                <img src="https://yt3.ggpht.com/ytc/AIdro_maP7bJe95R5eH1tiV2lwo3_iHlbA4qtrfJ_U5_pyQ0Ni0=s88-c-k-c0x00ffffff-no-rj" alt="Mr Beast Profile" />
+                <p>Mithzan</p>
             </div>
         </div>
         <div class="video">
-            <a href="https://www.youtube.com/watch?v=gcx2jMbBGY4" target="_blank">
-                <img src="https://i.ytimg.com/vi/gcx2jMbBGY4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDvcM0yr3GkdaitXd2F4fZAceIZwA" alt="Video Thumbnail 2" style="width:270px;height:180px;">
+            <a href="https://www.youtube.com/watch?v=bgjAZ0X1K2E" target="_blank">
+                <img src="https://i.ytimg.com/vi/bgjAZ0X1K2E/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCd4m-QMWcM37eF_gOmfB4uzdK5kQ" alt="Video Thumbnail 2">
             </a>
-            <p>The Satisfying Downfall of Nas Daily</p>
+            <p>Luring a Law Enforcement Scammer Into a "Real" Dark Web Crime</p>
             <div class="creator">
-                <img src="https://yt3.ggpht.com/Za9bEuCk2--pBiSsJTeTEpZTDuIDrxi0DDhTne2PwNoHDXuCtTk2EC1J-PL7YgR2WCjPZviGKJI=s88-c-k-c0x00ffffff-no-rj" alt="Internet Anarchist pfp" />
-                <p>Internet Anarchist</p>
+                <img src="https://yt3.ggpht.com/fdZXOmmiM3kVWU0QADQapdtyKdoshLEhPQtxU0o0qjdlSuMCmVFK7ini4tHmpLpuYIAwZv01=s88-c-k-c0x00ffffff-no-rj" alt="Internet Anarchist pfp" />
+                <p>TheTekkitRealm</p>
             </div>
         </div>
         <div class="video">
-            <a href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank">
-                <img src="https://i.ytimg.com/vi/9bZkp7q19f0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBNZCbK5jdh3ENPfdzB3BGNGNwCJg" alt="Video Thumbnail 1" style="width:270px;height:180px;">
+            <a href="https://www.youtube.com/watch?v=vc4yL3YTwWk&t=535s" target="_blank">
+                <img src="https://i.ytimg.com/vi/vc4yL3YTwWk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBN7Wi9Uai-Tmina5njKjg58MZblg" alt="Video Thumbnail 1">
             </a>
-            <p>PSY - GANGNAM STYLE(강남스타일) M/V</p>
+            <p>Exposing the Honey Influencer Scam</p>
             <div class="creator">
-                <img src="https://yt3.ggpht.com/kJ8zwS_VhJ0TE-XDumnshGQ86hazfhHjjU4xn80Dc8xmSghA_2xw4OJTHaGreyeoro6q_vcT=s88-c-k-c0x00ffffff-no-rj" alt="PSY Profile" />
-                <p>officialpsy</p>
+                <img src="https://yt3.ggpht.com/ytc/AIdro_kkWFfU_nuN6k4P3LEtqwqnk-LKTrY07RECJJWrUbuv5g=s88-c-k-c0x00ffffff-no-rj" alt="PSY Profile" />
+                <p>MegaLag</p>
             </div>
         </div>
         <div class="video">
-            <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4" target="_blank">
-                <img src="https://i.ytimg.com/vi/ZZ5LpwO-An4/hqdefault.jpg?sqp=-oaymwFBCOADEI4CSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AHeA4AC6AKKAgwIABABGH8gXigbMA8=&rs=AOn4CLDpRV34qELMvEClMVDcQuk3umSE4A" alt="Video Thumbnail 4" style="width:270px;height:180px;">
+            <a href="https://www.youtube.com/watch?v=dCbdeuGplqA" target="_blank">
+                <img src="https://i.ytimg.com/vi/dCbdeuGplqA/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLC_iC3gqrQea1TEJRpsTbCMMQ1e2w" alt="Video Thumbnail 4">
             </a>
-            <p>HEYYEYAAEYAAAEYAEYAA</p>
+            <p>hi guys</p>
             <div class="creator">
-                <img src="https://yt3.ggpht.com/ytc/AIdro_mGLzlWQe9pCzI-s5nFGMzTGsxVMIUUo0Aq6hRcQsWZTIY=s88-c-k-c0x00ffffff-no-rj" alt="ProtoOfSnagem Profile" />
-                <p>ProtoOfSnagem</p>
+                <img src="https://yt3.ggpht.com/TfT2L8DcxG3qVXYlWv5WeCm6NyljLV7wQdx3TG-hDCgg3HsHpyTC09sO1fR5MfPVfzWQarPQ=s88-c-k-c0x00ffffff-no-rj" alt="ProtoOfSnagem Profile" />
+                <p>Schlatt & Co.</p>
             </div>
         </div>
     </div>
+    <div class="featured-shorts">
+        <h2>Short of The Day</h2>
+        <iframe width="337" height="599" src="https://www.youtube.com/embed/Z5WOWZSmzug" title="cigar cutter #shorts #comedy #funny" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <footer>
-        <p>TaytenTube &copy; 2025. All Rights Reserved.</p>
+        <p>TaytenTube 2025.</p>
     </footer>
 </body>
 </html>
